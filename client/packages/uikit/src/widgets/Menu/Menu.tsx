@@ -162,123 +162,124 @@ const Menu: React.FC<NavProps> = ({
   }, [totalTopMenuHeight]);
 
   return (
-  <MenuContext.Provider value={{ linkComponent }}>
-    <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
-      <StyledNav>
-        <StyledNavInner>
-          <a href="/" style={{ marginLeft: "1rem" }}>
-            <Flex alignItems="center" justifyContent="flex-start" flexDirection="row">
-              <img
-                style={{
-                  boxShadow: "0 8px 8px #fff, 12px 0px 12px #0154FD, -12px 0px 12px #68B9FF",
-                  borderRadius: "50%",
-                }}
-                width={isMobile || isTablet ? 0 : 40}
-                height={isMobile || isTablet ? 0 : 40}
-                src="/images/newlogo.png"
-                alt="logo"
-              />
+    <MenuContext.Provider value={{ linkComponent }}>
+      <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
+        <StyledNav>
+          <StyledNavInner>
+            <a href="/" style={{ marginLeft: "1rem" }}>
+              <Flex alignItems="center" justifyContent="flex-start" flexDirection="row">
+                <img
+                  style={{
+                    boxShadow: "0 8px 8px #fff, 12px 0px 12px #0154FD, -12px 0px 12px #68B9FF",
+                    borderRadius: "50%",
+                  }}
+                  width={isMobile || isTablet ? 0 : 40}
+                  height={isMobile || isTablet ? 0 : 40}
+                  src="/images/newlogo.png"
+                  alt="logo"
+                />
 
-              <Text
-                marginLeft={["0rem", null, null, "0.5rem"]}
-                marginRight={["0rem", null, null, "0.7rem"]}
-                fontSize="1.8rem"
+                <Text
+                  marginLeft={["0rem", null, null, "0.5rem"]}
+                  marginRight={["0rem", null, null, "0.7rem"]}
+                  fontSize="1.8rem"
+                >
+                  BaseSwap
+                </Text>
+                <img
+                  style={{
+                    boxShadow: "0 8px 8px #fff, 12px 0px 12px #0154FD, -12px 0px 12px #68B9FF",
+                    borderRadius: "50%",
+                  }}
+                  src="/images/tokens/0xd5046B976188EB40f6DE40fB527F89c05b323385.png"
+                  width={isMobile || isTablet ? 0 : 40}
+                  height={isMobile || isTablet ? 0 : 40}
+                  alt="logo"
+                />
+              </Flex>
+            </a>
+            {!isMobile && !isTablet && (
+              <Flex
+                flexDirection="row"
+                justifyContent="flex-start"
+                alignItems="flex-end"
+
               >
-                BaseSwap
-              </Text>
-              <img
-                style={{
-                  boxShadow: "0 8px 8px #fff, 12px 0px 12px #0154FD, -12px 0px 12px #68B9FF",
-                  borderRadius: "50%",
-                }}
-                src="/images/tokens/0xd5046B976188EB40f6DE40fB527F89c05b323385.png"
-                width={isMobile || isTablet ? 0 : 40}
-                height={isMobile || isTablet ? 0 : 40}
-                alt="logo"
-              />
+                <DropdownContainer>
+                  <NavbarIcon icon={PiSwapBold} label="TRADE" href="/swap" />
+                  <DropdownMenu>
+                    <Link href="/swap" marginBottom="1.2rem">
+                      <DropdownText>SWAP</DropdownText>
+                    </Link>
+                    <Link href="/basicswap" marginBottom="1.2rem">
+                      <DropdownText>BASIC SWAP</DropdownText>
+                    </Link>
+                    <DropdownText style={{ color: 'gray', cursor: 'not-allowed', opacity: 0.6 }}>
+                      PERPETUALS (Unavailable)
+                    </DropdownText>
+
+                  </DropdownMenu>
+                </DropdownContainer>
+
+                <DropdownContainer>
+                  <NavbarIcon icon={BsFillDropletFill} label="LIQUIDITY" href="/liquidity" />
+                  <DropdownMenu>
+                    <Link href="/liquidity" marginBottom="1.2rem">
+                      <DropdownText>STANDARD</DropdownText>
+                    </Link>
+                    <Link href="/positions" >
+                      <DropdownText>CONCENTRATED</DropdownText>
+                    </Link>
+                  </DropdownMenu>
+                </DropdownContainer>
+
+                <DropdownContainer>
+                  <NavbarIcon icon={RiPlantFill} label="FARM" href="/farm" />
+                  <DropdownMenu>
+                    <Link href="/farm" marginBottom="1.2rem">
+                      <DropdownText>STANDARD FARMS</DropdownText>
+                    </Link>
+                    <Link href="/farmV3" >
+                      <DropdownText>CONCENTRATED FARMS</DropdownText>
+                    </Link>
+                  </DropdownMenu>
+                </DropdownContainer>
+
+
+
+                <NavbarIcon icon={BsCoin} label="Earn" href="/pools" />
+
+                <DropdownContainer>
+                  <NavbarIcon icon={MdGamepad} label="MORE!" href="/" />
+                  <DropdownMenu>
+                    <Link href="/xbsx" marginBottom="1.2rem">
+                      <DropdownText marginRight="2rem">xBSX</DropdownText>
+                    </Link>
+                    <Link href="/finishedfarms" marginBottom="1.2rem">
+                      <DropdownText marginRight="2rem">Finished Farms </DropdownText>
+                    </Link>
+                    <Link href="/bridge" marginBottom="1.2rem">
+                      <DropdownText marginRight="2rem">Bridge </DropdownText>
+                    </Link>
+                    <Link href="/locker" marginBottom="1.2rem">
+                      <DropdownText marginRight="2rem">Token Locker </DropdownText>
+                    </Link>
+                    <Link href="https://marketplace.baseswap.fi">
+                      <DropdownText marginRight="2rem">NFT</DropdownText>
+                    </Link>
+                  </DropdownMenu>
+                </DropdownContainer>
+              </Flex>
+            )}
+            <Flex alignItems="center" justifyContent="flex-end" height="100%" >
+              {rightSide}
             </Flex>
-          </a>
-          {!isMobile && !isTablet && (
-            <Flex
-              flexDirection="row"
-              justifyContent="flex-start"
-              alignItems="flex-end"
-              
-            >
-              <DropdownContainer>
-                <NavbarIcon icon={PiSwapBold} label="TRADE" href="/swap" />
-                <DropdownMenu>
-                  <Link href="/swap" marginBottom="1.2rem">
-                    <DropdownText>SWAP</DropdownText>
-                  </Link>
-                  <Link href="/basicswap" marginBottom="1.2rem">
-                    <DropdownText>BASIC SWAP</DropdownText>
-                  </Link>
-                  <Link href="http://perpetuals.baseswap.fi">
-                    <DropdownText>PERPETUALS</DropdownText>
-                  </Link>
-                </DropdownMenu>
-              </DropdownContainer>
-
-              <DropdownContainer>
-                <NavbarIcon icon={BsFillDropletFill} label="LIQUIDITY" href="/liquidity" />
-                <DropdownMenu>
-                  <Link href="/liquidity" marginBottom="1.2rem">
-                    <DropdownText>STANDARD</DropdownText>
-                  </Link>
-                  <Link href="/positions" >
-                    <DropdownText>CONCENTRATED</DropdownText>
-                  </Link>
-                </DropdownMenu>
-              </DropdownContainer>
-
-              <DropdownContainer>
-                <NavbarIcon icon={RiPlantFill} label="FARM" href="/farm" />
-                <DropdownMenu>
-                  <Link href="/farm" marginBottom="1.2rem">
-                    <DropdownText>STANDARD FARMS</DropdownText>
-                  </Link>
-                  <Link href="/farmV3" >
-                    <DropdownText>CONCENTRATED FARMS</DropdownText>
-                  </Link>
-                </DropdownMenu>
-              </DropdownContainer>
-
-
-
-              <NavbarIcon icon={BsCoin} label="Earn" href="/pools" />
-
-              <DropdownContainer>
-                <NavbarIcon icon={MdGamepad} label="MORE!" href="/" />
-                <DropdownMenu>
-                  <Link href="/xbsx" marginBottom="1.2rem">
-                    <DropdownText marginRight="2rem">xBSX</DropdownText>
-                  </Link>
-                  <Link href="/finishedfarms" marginBottom="1.2rem">
-                    <DropdownText marginRight="2rem">Finished Farms </DropdownText>
-                  </Link>
-                  <Link href="/bridge" marginBottom="1.2rem">
-                    <DropdownText marginRight="2rem">Bridge </DropdownText>
-                  </Link>
-                  <Link href="/locker" marginBottom="1.2rem">
-                    <DropdownText marginRight="2rem">Token Locker </DropdownText>
-                  </Link>
-                  <Link href="https://marketplace.baseswap.fi">
-                    <DropdownText marginRight="2rem">NFT</DropdownText>
-                  </Link>
-                </DropdownMenu>
-              </DropdownContainer>
-            </Flex>
-          )}
-        <Flex alignItems="center" justifyContent="flex-end" height="100%" >
-            {rightSide}
-        </Flex>
-        </StyledNavInner>
+          </StyledNavInner>
         </StyledNav>
-    </FixedContainer>
+      </FixedContainer>
       {subLinks && (
         <Flex justifyContent="space-around" mt={`${totalTopMenuHeight + 1}px`}>
-     
+
         </Flex>
       )}
       <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : "0"}>
@@ -299,7 +300,7 @@ const Menu: React.FC<NavProps> = ({
       </BodyWrapper>
       {(isMobile || isTablet) && <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />}
 
-  </MenuContext.Provider>
+    </MenuContext.Provider>
   );
 };
 

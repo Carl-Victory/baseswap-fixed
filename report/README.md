@@ -1,0 +1,1 @@
+I disabled the PERPETUALS navigation link because it redirects to http://perpetuals.baseswap.fi, which is currently unreachable. This prevents user confusion or broken redirects. The link was commented out and visually marked as unavailable in the dropdown menu.
